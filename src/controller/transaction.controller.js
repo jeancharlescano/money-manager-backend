@@ -10,7 +10,8 @@ export const createTransaction = async (req, _rep) => {
       [amount, isEarning, paymentType, description, date]
     );
     return result;
-  } catch (error) {0
+  } catch (error) {
+    0;
     console.log(
       "🚀 ~ file: data.controller.js ~ line 15 ~ createData ~ error",
       error
@@ -28,6 +29,22 @@ export const getTransactions = async () => {
     console.log(
       "🚀 ~ file: data.controller.js ~ line 24 ~ getDatas ~ err",
       err
+    );
+  }
+};
+
+export const getTransactionById = async (req, rep) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query(
+      `SELECT * FROM transactions WHERE id = $1`,
+      [id]
+    );
+    return result.rows;
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: transaction.controller.js:40 ~ getTransactionById ~ error",
+      error
     );
   }
 };

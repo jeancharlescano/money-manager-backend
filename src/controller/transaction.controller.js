@@ -35,3 +35,19 @@ export const getTransactions = async () => {
     );
   }
 };
+
+export const getTransactionById = async (req, rep) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query(
+      `SELECT * FROM transactions WHERE id = $1`,
+      [id]
+    );
+    return result.rows;
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: transaction.controller.js:40 ~ getTransactionById ~ error",
+      error
+    );
+  }
+};

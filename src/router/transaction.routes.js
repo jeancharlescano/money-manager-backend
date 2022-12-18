@@ -2,6 +2,7 @@ import cors from "@fastify/cors";
 import {
   createTransaction,
   getTransactions,
+  getTransactionById
 } from "../controller/transaction.controller.js";
 
 const routes = async (fastify) => {
@@ -9,6 +10,7 @@ const routes = async (fastify) => {
 
   fastify.post("/", createTransaction);
   fastify.get("/", getTransactions);
+  fastify.get("/:id", getTransactionById);
 };
 
 export default routes;

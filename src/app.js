@@ -1,11 +1,11 @@
-import Fastify from "fastify";
+import {fastify} from "fastify";
 
 import transactionRoutes from "./router/transaction.routes.js";
 
-export const fastify = Fastify();
+export const server = fastify();
 
 const buildApp = async () => {
-  fastify.register(transactionRoutes, { prefix: "/tx" });
-  return fastify;
+  server.register(transactionRoutes, { prefix: "/tx" });
+  return server;
 };
 export default buildApp;

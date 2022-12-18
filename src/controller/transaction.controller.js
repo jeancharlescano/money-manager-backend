@@ -3,6 +3,10 @@ pool.connect;
 
 export const createTransaction = async (req, _rep) => {
   const { amount, isEarning, paymentType, description, date } = req.body;
+  console.log(
+    "🚀 ~ file: transaction.controller.js:6 ~ createTransaction ~ date",
+    date
+  );
 
   try {
     const result = await pool.query(
@@ -10,9 +14,9 @@ export const createTransaction = async (req, _rep) => {
       [amount, isEarning, paymentType, description, date]
     );
     return result;
-  } catch (error) {0
+  } catch (error) {
     console.log(
-      "🚀 ~ file: data.controller.js ~ line 15 ~ createData ~ error",
+      "🚀 ~ file: transaction.controller.js:14 ~ createTransaction ~ error",
       error
     );
   }
@@ -26,7 +30,7 @@ export const getTransactions = async () => {
     return result.rows;
   } catch (err) {
     console.log(
-      "🚀 ~ file: data.controller.js ~ line 24 ~ getDatas ~ err",
+      "🚀 ~ file: transaction.controller.js:28 ~ getTransactions ~ err",
       err
     );
   }

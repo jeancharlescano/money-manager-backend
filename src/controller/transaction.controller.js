@@ -3,11 +3,6 @@ pool.connect;
 
 export const createTransaction = async (req, _rep) => {
   const { amount, isEarning, paymentType, description, date } = req.body;
-  console.log(
-    "🚀 ~ file: transaction.controller.js:6 ~ createTransaction ~ date",
-    date
-  );
-
   try {
     const result = await pool.query(
       `INSERT INTO transactions (amount, is_earning, payment_type, description, date) VALUES ($1, $2, $3, $4, $5);`,

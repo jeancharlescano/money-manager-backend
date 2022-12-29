@@ -3,9 +3,9 @@ const { Pool } = pkg;
 
 export const pool = new Pool({
   user: "postgres",
-  host: "192.168.1.201",
-  database: "moneymanager",
-  password: "Jccano958624371*",
+  host: "localhost",
+  database: "money-manager",
+  password: "password",
   port: 5432,
 });
 
